@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD
+3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="pl.dmcs.firma.pojo" >
+	<class name="pl.dmcs.firma.pojo.Pracownik" table="pracownik">
+		<id name="ID" type="int">
+			<column name="id" not-null="true" />
+			<generator class="increment" />
+		</id>
+		<property name="Imie" type="string">
+			<column name="imie" not-null="true" />
+		</property>
+		<property name="Nazwisko" type="string">
+			<column name="nazwisko" not-null="true" />
+		</property>
+		<property name="DataUrodzenia" type="date">
+			<column name="data_urodzenia" not-null="true" />
+		</property>
+		<property name="Stanowisko" type="string">
+			<column name="stanowisko" not-null="false" />
+		</property>
+		<many-to-one name="dzial" column="dzial_id" class="Dzial" not-null="true" />
+		<many-to-one name="projekt" column="projekt_id" class="Projekt" not-null="true" />
+	</class>
+</hibernate-mapping>
